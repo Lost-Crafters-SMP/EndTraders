@@ -1,0 +1,3 @@
+execute if predicate endtraders:is_in_water run damage @s 1 minecraft:generic
+execute unless predicate endtraders:is_in_water if predicate endtraders:is_in_overworld if predicate endtraders:is_raining run function endtraders:can_see_sky/check
+execute unless predicate endtraders:is_in_water if predicate endtraders:is_in_overworld if predicate endtraders:is_raining if score canSeeSky endtrader_math matches 1 run damage @s 1 minecraft:generic

@@ -1,0 +1,40 @@
+{
+	"condition": "minecraft:all_of",
+	"terms": [
+		{
+			"condition": "minecraft:any_of",
+			"terms": [
+				{
+					"condition": "minecraft:location_check",
+					"predicate": {
+						"block": {
+							"tag": "minecraft:trapdoors",
+							"state": {
+								"open": true
+							}
+						}
+					}
+				},
+				{
+					"condition": "minecraft:location_check",
+					"predicate": {
+						"block": {
+							"tag": "endtraders:passthrough"
+						}
+					}
+				}
+			]
+		},
+		{
+			"condition": "minecraft:inverted",
+			"term": {
+				"condition": "minecraft:location_check",
+				"predicate": {
+					"block": {
+						"tag": "minecraft:leaves"
+					}
+				}
+			}
+		}
+	]
+}
