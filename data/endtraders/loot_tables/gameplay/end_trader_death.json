@@ -1,0 +1,68 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chorus_plant",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{trader:{item:\"heartOfTheEnd\",from:\"end_traders\"},Enchantments:[{id:\"luck_of_the_sea\",lvl:1s}],HideFlags:1}"
+            },
+            {
+              "function": "minecraft:set_lore",
+              "entity": "this",
+              "lore": [
+                [
+                  {
+                    "text": "",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Blame "
+                  },
+                  {
+                    "text": "@reninsane",
+                    "color": "red"
+                  },
+                  {
+                    "text": " for this cruel"
+                  }
+                ],
+                [
+                  {
+                    "text": "",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "way to kill the "
+                  },
+                  {
+                    "text": "End Trader",
+                    "color": "dark_aqua"
+                  },
+                  {
+                    "text": "."
+                  }
+                ]
+              ],
+              "replace": true
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Heart of the End",
+                "italic": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

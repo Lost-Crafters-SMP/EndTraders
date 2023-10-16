@@ -1,0 +1,40 @@
+name: zip datapack
+
+on:
+  # allows to manually run the job at any time
+  workflow_dispatch:
+
+  # run on every release
+  push:
+    tags:
+    - '*'
+
+jobs:
+  zip:
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    # get latest release
+    - id: release
+      uses: pozetroninc/github-action-get-latest-release@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+    # zip the file
+    - name: Create Zip Folder
+      run: zip -r EndTraders-${{ steps.release.outputs.release }}.zip ./data/ pack.mcmeta pack.png
+    # release on github
+    - name: Release to github
+      uses: xresloader/upload-to-github-release@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        file: "EndTraders-${{ steps.release.outputs.release }}.zip"
+        delete_file: "EndTraders-${{ steps.release.outputs.release }}.zip"
+        release_id: ${{ steps.release.outputs.id }}
+        # tags: ${{ github.ref }}
+        overwrite: true
+        verbose: true
