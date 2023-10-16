@@ -22,4 +22,7 @@ execute as @e[type=minecraft:item,nbt={Item:{tag:{deleteOnDrop:1b}}}] run kill @
 # Check for trades
 execute as @e[type=minecraft:villager,nbt={Tags:["trader","end_trader"]}] at @s unless entity @s[nbt={ActiveEffects:[{Id:26}]}] run function endtraders:trades
 
+# Damage if not in rain
+execute as @e[type=minecraft:villager,nbt={Tags:["trader","end_trader"]}] at @s run function endtraders:damage
+
 schedule function endtraders:tick 1t
